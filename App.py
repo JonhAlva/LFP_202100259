@@ -1,6 +1,5 @@
 from Clase import *
 from time import sleep
-#from graphviz import Source
 import os
 
 lista_peliculas = []
@@ -45,11 +44,11 @@ def Cargar_archivo():
         str_entrada = f.read()
         filas = str_entrada.split("\n")
         for fila in filas:
-            partes = fila.split(";")
-            nombre = partes[0].strip()
-            actores = partes[1].split(",")
-            anio = partes[2].strip()
-            genero = partes[3].strip()
+            separador = fila.split(";")
+            nombre = separador[0].strip()
+            actores = separador[1].split(",")
+            anio = separador[2].strip()
+            genero = separador[3].strip()
 
             for i in range(len(actores)):
                 actores[i] = actores[i].strip()
@@ -87,8 +86,8 @@ def Mostrar_peliculas():
     cls()
     print("--------------Peliculas--------------")
     for pelicula in lista_peliculas:
-        print("Nombre: ",pelicula.nombre)
-        print("Año: ", pelicula.anio)
+        print("Nombre: ",pelicula.nombre, end=" ")
+        print("Año: ", pelicula.anio, end=" ")
         print("Genero: ", pelicula.genero)
         print("*************************************")
     input()
@@ -163,8 +162,8 @@ def Filtrado_por_actor():
 
     for pelicula in lista_peliculas:
         if actor_seleccionado in pelicula.actores:
-            print(" Nombre: ",pelicula.nombre)
-            print(" Año: ", pelicula.anio)
+            print(" Nombre: ",pelicula.nombre, end=" ")
+            print(" Año: ", pelicula.anio, end=" ")
             print(" Genero: ", pelicula.genero)
             print("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
 
@@ -195,7 +194,7 @@ def Filtrado_por_anio():
     
     for pelicula in lista_peliculas:
         if pelicula.anio == anio_seleccionado:
-            print(" Nombre: ",pelicula.nombre)
+            print(" Nombre: ",pelicula.nombre, end=" ")
             print(" Año: ", pelicula.anio)
             print("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
             
@@ -225,7 +224,7 @@ def Filtrado_por_genero():
     
     for pelicula in lista_peliculas:
         if pelicula.genero == genero_seleccionado:
-            print(" Nombre: ",pelicula.nombre)
+            print(" Nombre: ",pelicula.nombre, end=" ")
             print(" Genero: ", pelicula.genero)
             print("-------------------------------------")
     
